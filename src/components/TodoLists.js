@@ -1,10 +1,10 @@
 import TodoItem from './TodoItem';
 
-const TodoLists = ({ todos }) => {
+const TodoLists = ({ todos, onDelete }) => {
   return (
     <div>
       {todos.map((todo) => (
-        <TodoItem todo={todo} key={todo.id} />
+        <TodoItem todo={todo} onDelete={onDelete} key={todo.id} />
       ))}
     </div>
   );

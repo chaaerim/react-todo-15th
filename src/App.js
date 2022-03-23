@@ -17,10 +17,17 @@ const App = () => {
     [todos]
   );
 
+  const onDelete = useCallback(
+    (id) => {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    },
+    [todos]
+  );
+
   return (
     <TodoBox>
       <TodoInput onInsert={onInsert} />
-      <TodoLists todos={todos} />
+      <TodoLists todos={todos} onDelete={onDelete} />
     </TodoBox>
   );
 };
