@@ -1,10 +1,8 @@
+import Clock from './components/Clock';
+import TodoBox from './components/TodoBox';
 
 function App() {
-  return (
-    <div>
-      <h1>15기 화이팅~</h1>
-    </div>
-  );
+  return <Clock />;
 }
 
 export default App;
