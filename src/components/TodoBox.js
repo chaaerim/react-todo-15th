@@ -1,6 +1,12 @@
 import Clock from './Clock';
 const TodoBox = ({ children }) => {
-  return <Clock />;
+  return (
+    <div>
+      <Clock></Clock>
+      <h2>🔫 To Do List</h2>
+      <div>{children}</div>
+    </div>
+  );
 };
 
 export default TodoBox;

@@ -1,8 +1,6 @@
-import Clock from './components/Clock';
 import TodoBox from './components/TodoBox';
 
-function App() {
-  return <Clock />;
-}
-
+const App = () => {
+  return <TodoBox />;
+};
 export default App;
