@@ -4,18 +4,19 @@ import TodoInput from './components/TodoInput';
 import TodoLists from './components/TodoLists';
 
 const App = () => {
-  const [todos, setTodos] = useState('');
+  const [todos, setTodos] = useState([]);
   const onInsert = useCallback(
-    (text) => {
+    (todoText) => {
       const todo = {
         id: Date.now(),
-        text,
+        text: todoText,
         isCompleted: false,
       };
-      setTodos(todos.concat(todo));
+      setTodos([...todos, todo]);
     },
     [todos]
   );
+
   return (
     <TodoBox>
       <TodoInput onInsert={onInsert} />

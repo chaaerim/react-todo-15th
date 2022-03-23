@@ -1,9 +1,8 @@
 const TodoItem = ({ todo }) => {
-  const [text, isCompleted] = todo;
-
+  const { id, text, isCompleted } = todo;
   return (
     <div>
-      <div>{text}</div>
+      <span>{text}</span>
       <button>✔️</button>
       <button>🗑</button>
     </div>
