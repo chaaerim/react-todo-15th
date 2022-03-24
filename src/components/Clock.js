@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react';
 import moment from 'moment';
+import styled from 'styled-components';
+
+const ClockContainer = styled.h2`
+  margin: 0;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 27px;
+`;
 
 const Clock = () => {
   let timer = null;
@@ -16,6 +24,6 @@ const Clock = () => {
     }, 1000);
   }, []);
 
-  return <h2>{time.format('HH:mm:ss')}</h2>;
+  return <ClockContainer>{time.format('HH:mm:ss')}</ClockContainer>;
 };
 export default Clock;

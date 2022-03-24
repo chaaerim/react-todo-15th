@@ -4,10 +4,16 @@ import TodoInput from './TodoInput';
 import TodoLists from './TodoLists';
 import styled from 'styled-components';
 
+const Title = styled.h2`
+  margin: 0;
+  font-weight: normal;
+`;
+
 const TodoBox = () => {
   //localStorage key설정
   const TODOS_KEY = 'todos';
 
+  //렌더링 시 localStorage에서 todos 가져오기
   const [todos, setTodos] = useState(
     () => JSON.parse(localStorage.getItem(TODOS_KEY)) || []
   );
@@ -55,7 +61,7 @@ const TodoBox = () => {
   return (
     <div>
       <Clock></Clock>
-      <h2 className="todo-title">🔫 To Do List</h2>
+      <Title className="todo-title">🔫 To Do List</Title>
       <TodoInput onInsert={onInsert} />
 
       <TodoLists todos={todos} onDelete={onDelete} onToggle={onToggle} />

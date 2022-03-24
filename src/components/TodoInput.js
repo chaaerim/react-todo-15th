@@ -1,4 +1,15 @@
 import { useState } from 'react';
+import styled from 'styled-components';
+
+const InputBox = styled.input`
+  margin: 0.5rem;
+  padding-left: 1rem;
+  border-radius: 12px;
+  background-color: rgb(241, 241, 229);
+  border: none;
+  height: 2.5rem;
+  width: 25rem;
+`;
 
 const TodoInput = ({ onInsert }) => {
   const [todoText, setTodoText] = useState('');
@@ -16,7 +27,7 @@ const TodoInput = ({ onInsert }) => {
   };
   return (
     <form onSubmit={onSubmit}>
-      <input
+      <InputBox
         value={todoText}
         onChange={onChange}
         placeholder="할 일을 입력하세요"
