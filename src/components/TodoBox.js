@@ -2,6 +2,7 @@ import Clock from './Clock';
 import { useCallback, useEffect, useState } from 'react';
 import TodoInput from './TodoInput';
 import TodoLists from './TodoLists';
+import styled from 'styled-components';
 
 const TodoBox = () => {
   //localStorage key설정
