@@ -1,18 +1,20 @@
 import Clock from './Clock';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import TodoInput from './TodoInput';
 import TodoLists from './TodoLists';
 
-const TodoBox = ({ children }) => {
-  const [todos, setTodos] = useState([]);
-
+const TodoBox = () => {
   //localStorage key설정
-  let TODOS_KEY = 'todos';
+  const TODOS_KEY = 'todos';
+
+  const [todos, setTodos] = useState(
+    () => JSON.parse(localStorage.getItem(TODOS_KEY)) || []
+  );
 
   //localStorage에 todos 저장
-  const onSaveTodos = () => {
+  useEffect(() => {
     localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
-  };
+  }, [todos]);
 
   // input에 입력된 text로 todo 객체 생성
   const onInsert = useCallback(
@@ -26,7 +28,6 @@ const TodoBox = ({ children }) => {
       // 원래 있던 todo에 새로운 todo 붙이기
       setTodos([...todos, todo]);
     },
-    onSaveTodos(),
     [todos]
   );
 
@@ -35,7 +36,6 @@ const TodoBox = ({ children }) => {
     (id) => {
       setTodos(todos.filter((todo) => todo.id !== id));
     },
-    onSaveTodos(),
     [todos]
   );
 
@@ -58,7 +58,6 @@ const TodoBox = ({ children }) => {
       <TodoInput onInsert={onInsert} />
 
       <TodoLists todos={todos} onDelete={onDelete} onToggle={onToggle} />
-      <div className="todos">{children}</div>
     </div>
   );
 };
