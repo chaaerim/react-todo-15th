@@ -7,6 +7,7 @@ const TodoInput = ({ onInsert }) => {
     onInsert(todoText);
     //input창 비우기
     setTodoText('');
+
     //새로고침 방지
     e.preventDefault();
   };
