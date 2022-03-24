@@ -6,6 +6,14 @@ import TodoLists from './TodoLists';
 const TodoBox = ({ children }) => {
   const [todos, setTodos] = useState([]);
 
+  //localStorage key설정
+  let TODOS_KEY = 'todos';
+
+  //localStorage에 todos 저장
+  const onSaveTodos = () => {
+    localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
+  };
+
   // input에 입력된 text로 todo 객체 생성
   const onInsert = useCallback(
     (todoText) => {
@@ -18,6 +26,7 @@ const TodoBox = ({ children }) => {
       // 원래 있던 todo에 새로운 todo 붙이기
       setTodos([...todos, todo]);
     },
+    onSaveTodos(),
     [todos]
   );
 
@@ -26,6 +35,7 @@ const TodoBox = ({ children }) => {
     (id) => {
       setTodos(todos.filter((todo) => todo.id !== id));
     },
+    onSaveTodos(),
     [todos]
   );
 
@@ -40,12 +50,6 @@ const TodoBox = ({ children }) => {
     },
     [todos]
   );
-
-  // isCompleted 이 false인 yetTodo 배열 생성
-  const yetTodoList = todos.filter((todo) => todo.isCompleted === false);
-
-  //isCompleted 이 true인 doneTodo 배열 생
-  const doneTodoList = todos.filter((todo) => todo.isCompleted === true);
 
   return (
     <div>

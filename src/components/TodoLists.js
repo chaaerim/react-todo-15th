@@ -13,24 +13,28 @@ const TodoLists = ({ todos, onDelete, onToggle }) => {
   console.log(doneTodoList);
   return (
     <div>
-      <div>🔮 To Do ({yetTodoList.length})</div>
-      {yetTodoList.map((todo) => (
-        <TodoItem
-          todo={todo}
-          onDelete={onDelete}
-          onToggle={onToggle}
-          key={todo.id}
-        />
-      ))}
-      <div>❤️‍🔥 Done ({doneTodoList.length})</div>
-      {doneTodoList.map((todo) => (
-        <TodoItem
-          todo={todo}
-          onDelete={onDelete}
-          onToggle={onToggle}
-          key={todo.id}
-        />
-      ))}
+      <div>
+        🔮 To Do ({yetTodoList.length})
+        {yetTodoList.map((todo) => (
+          <TodoItem
+            todo={todo}
+            onDelete={onDelete}
+            onToggle={onToggle}
+            key={todo.id}
+          />
+        ))}
+      </div>
+      <div>
+        ❤️‍🔥 Done ({doneTodoList.length})
+        {doneTodoList.map((todo) => (
+          <TodoItem
+            todo={todo}
+            onDelete={onDelete}
+            onToggle={onToggle}
+            key={todo.id}
+          />
+        ))}
+      </div>
     </div>
   );
 };
