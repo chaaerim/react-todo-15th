@@ -13,7 +13,7 @@ const TodoBox = () => {
   //localStorage key설정
   const TODOS_KEY = 'todos';
 
-  //렌더링 시 localStorage에서 todos 가져오기
+  //localStorage에서 todos 가져오기
   const [todos, setTodos] = useState(
     () => JSON.parse(localStorage.getItem(TODOS_KEY)) || []
   );
@@ -63,7 +63,6 @@ const TodoBox = () => {
       <Clock></Clock>
       <Title className="todo-title">🔫 To Do List</Title>
       <TodoInput onInsert={onInsert} />
-
       <TodoLists todos={todos} onDelete={onDelete} onToggle={onToggle} />
     </div>
   );

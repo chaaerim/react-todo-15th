@@ -3,6 +3,8 @@ const TodoItemContainer = styled.div`
   padding: 3px 1.5rem 3px 2rem;
   display: flex;
   justify-content: space-between;
+
+  //toggle 스타일링
   text-decoration: ${(props) => (props.isCompleted ? 'line-through' : ' ')};
   color: ${(props) => (props.isCompleted ? '#adb5bd' : 'black')};
 `;
