@@ -16,6 +16,7 @@ const TodoInput = ({ onInsert }) => {
   const onSubmit = (e) => {
     //todo 객체 생성
     onInsert(todoText);
+
     //input창 비우기
     setTodoText('');
 

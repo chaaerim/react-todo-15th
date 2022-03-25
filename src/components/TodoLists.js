@@ -19,6 +19,7 @@ const ShowLists = styled.div`
   overflow: auto;
   background-color: rgb(241, 241, 229);
 
+  //스크롤바 스타일
   ::-webkit-scrollbar {
     width: 6px;
     padding: 0;
