@@ -8,14 +8,14 @@ body {
 }
 
 button {
+  &:hover{
+    cursor: pointer;
+  }
   border: none;
   background: none;
   font-size: 17px;
 }
 
-  button:hover {
-    cursor: pointer;
-  }
   form {
     text-align: center;
   }

@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 const TodoItemContainer = styled.div`
-  padding: 3px 1.5rem 3px 2rem;
+  padding: 0.2rem 1.5rem 0.2rem 2rem;
   display: flex;
   justify-content: space-between;
 
   //toggle 스타일링
-  text-decoration: ${(props) => (props.isCompleted ? 'line-through' : ' ')};
-  color: ${(props) => (props.isCompleted ? '#adb5bd' : 'black')};
+  text-decoration: ${({ isCompleted }) =>
+    isCompleted ? 'line-through' : 'none'};
+  color: ${({ isCompleted }) => (isCompleted ? '#adb5bd' : 'black')};
 `;
 
 const Button = styled.button`
@@ -18,14 +19,14 @@ const TodoText = styled.span`
   font-size: 15px;
 `;
 
-const TodoItem = ({ todo, onDelete, onToggle }) => {
+const TodoItem = ({ todo, handleTodoDelete, handleTodoToggle }) => {
   const { id, text, isCompleted } = todo;
   return (
     <TodoItemContainer isCompleted={isCompleted}>
       <TodoText>{text}</TodoText>
       <div>
-        <Button onClick={() => onToggle(id)}>✔️</Button>
-        <Button onClick={() => onDelete(id)}>🗑</Button>
+        <Button onClick={() => handleTodoToggle(id)}>✔️</Button>
+        <Button onClick={() => handleTodoDelete(id)}>🗑</Button>
       </div>
     </TodoItemContainer>
   );

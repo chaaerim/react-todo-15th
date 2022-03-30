@@ -33,7 +33,7 @@ const ShowLists = styled.div`
   }
 `;
 
-const TodoLists = ({ todos, onDelete, onToggle }) => {
+const TodoLists = ({ todos, handleTodoDelete, handleTodoToggle }) => {
   // isCompleted 이 false인 yetTodo 배열 생성
   const yetTodoList = todos.filter((todo) => todo.isCompleted === false);
 
@@ -47,8 +47,8 @@ const TodoLists = ({ todos, onDelete, onToggle }) => {
         {yetTodoList.map((todo) => (
           <TodoItem
             todo={todo}
-            onDelete={onDelete}
-            onToggle={onToggle}
+            handleTodoDelete={handleTodoDelete}
+            handleTodoToggle={handleTodoToggle}
             key={todo.id}
           />
         ))}
@@ -59,8 +59,8 @@ const TodoLists = ({ todos, onDelete, onToggle }) => {
         {doneTodoList.map((todo) => (
           <TodoItem
             todo={todo}
-            onDelete={onDelete}
-            onToggle={onToggle}
+            handleTodoDelete={handleTodoDelete}
+            handleTodoToggle={handleTodoToggle}
             key={todo.id}
           />
         ))}

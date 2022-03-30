@@ -18,7 +18,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <TodoContainer>
-        <TodoBox></TodoBox>
+        <TodoBox />
       </TodoContainer>
     </>
   );

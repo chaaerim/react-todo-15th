@@ -9,13 +9,14 @@ const Title = styled.h2`
   font-weight: normal;
 `;
 
+const TODOS_KEY = 'todos';
+
 const TodoBox = () => {
   //localStorage key설정
-  const TODOS_KEY = 'todos';
 
   //localStorage에서 todos 가져오기
   const [todos, setTodos] = useState(
-    () => JSON.parse(localStorage.getItem(TODOS_KEY)) || []
+    JSON.parse(localStorage.getItem(TODOS_KEY)) || []
   );
 
   //localStorage에 todos 저장
@@ -24,7 +25,7 @@ const TodoBox = () => {
   }, [todos]);
 
   // input에 입력된 text로 todo 객체 생성
-  const onInsert = useCallback(
+  const handleTodoInput = useCallback(
     (todoText) => {
       const todo = {
         id: Date.now(),
@@ -39,7 +40,7 @@ const TodoBox = () => {
   );
 
   // todo 삭제 function
-  const onDelete = useCallback(
+  const handleTodoDelete = useCallback(
     (id) => {
       setTodos(todos.filter((todo) => todo.id !== id));
     },
@@ -47,7 +48,7 @@ const TodoBox = () => {
   );
 
   // todo 토글 function
-  const onToggle = useCallback(
+  const handleTodoToggle = useCallback(
     (id) => {
       setTodos(
         todos.map((todo) =>
@@ -62,8 +63,12 @@ const TodoBox = () => {
     <div>
       <Clock></Clock>
       <Title className="todo-title">🔫 To Do List</Title>
-      <TodoInput onInsert={onInsert} />
-      <TodoLists todos={todos} onDelete={onDelete} onToggle={onToggle} />
+      <TodoInput handleTodoInput={handleTodoInput} />
+      <TodoLists
+        todos={todos}
+        handleTodoDelete={handleTodoDelete}
+        handleTodoToggle={handleTodoToggle}
+      />
     </div>
   );
 };

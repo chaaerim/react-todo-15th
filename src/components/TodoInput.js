@@ -11,11 +11,11 @@ const InputBox = styled.input`
   width: 25rem;
 `;
 
-const TodoInput = ({ onInsert }) => {
+const TodoInput = ({ handleTodoInput }) => {
   const [todoText, setTodoText] = useState('');
-  const onSubmit = (e) => {
+  const handleInputSubmit = (e) => {
     //todo 객체 생성
-    onInsert(todoText);
+    handleTodoInput(todoText);
 
     //input창 비우기
     setTodoText('');
@@ -23,14 +23,14 @@ const TodoInput = ({ onInsert }) => {
     //새로고침 방지
     e.preventDefault();
   };
-  const onChange = (e) => {
+  const handleInputChange = (e) => {
     setTodoText(e.target.value);
   };
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleInputSubmit}>
       <InputBox
         value={todoText}
-        onChange={onChange}
+        onChange={handleInputChange}
         placeholder="할 일을 입력하세요"
         type="text"
         required
