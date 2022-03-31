@@ -1,5 +1,6 @@
 import TodoItem from './TodoItem';
 import styled from 'styled-components';
+import { Todo } from '../interface/Todo';
 const ListContainer = styled.div`
   padding: 0;
   margin: 0;
@@ -35,16 +36,16 @@ const ShowLists = styled.div`
 
 const TodoLists = ({ todos, handleTodoDelete, handleTodoToggle }) => {
   // isCompleted 이 false인 yetTodo 배열 생성
-  const yetTodoList = todos.filter((todo: any) => todo.isCompleted === false);
+  const yetTodoList = todos.filter((todo: Todo) => todo.isCompleted === false);
 
   //isCompleted 이 true인 doneTodo 배열 생성
-  const doneTodoList = todos.filter((todo: any) => todo.isCompleted === true);
+  const doneTodoList = todos.filter((todo: Todo) => todo.isCompleted === true);
 
   return (
     <ListContainer>
       <ListTitle>🔮 To Do ({yetTodoList.length})</ListTitle>
       <ShowLists>
-        {yetTodoList.map((todo) => (
+        {yetTodoList.map((todo: Todo) => (
           <TodoItem
             todo={todo}
             handleTodoDelete={handleTodoDelete}
@@ -56,7 +57,7 @@ const TodoLists = ({ todos, handleTodoDelete, handleTodoToggle }) => {
 
       <ListTitle> ❤️‍🔥 Done ({doneTodoList.length}) </ListTitle>
       <ShowLists>
-        {doneTodoList.map((todo) => (
+        {doneTodoList.map((todo: Todo) => (
           <TodoItem
             todo={todo}
             handleTodoDelete={handleTodoDelete}

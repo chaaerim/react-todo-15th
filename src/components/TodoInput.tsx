@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const InputBox = styled.input`
@@ -13,7 +13,7 @@ const InputBox = styled.input`
 
 const TodoInput = ({ handleTodoInput }) => {
   const [todoText, setTodoText] = useState('');
-  const handleInputSubmit = (e: any) => {
+  const handleInputSubmit = (e: React.SyntheticEvent) => {
     //todo 객체 생성
     handleTodoInput(todoText);
 
@@ -23,7 +23,7 @@ const TodoInput = ({ handleTodoInput }) => {
     //새로고침 방지
     e.preventDefault();
   };
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTodoText(e.target.value);
   };
   return (

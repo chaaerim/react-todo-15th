@@ -5,9 +5,10 @@ const TodoItemContainer = styled.div`
   justify-content: space-between;
 
   //toggle 스타일링
-  text-decoration: ${({ defaultChecked }) =>
-    defaultChecked ? 'line-through' : 'none'};
-  color: ${({ defaultChecked }) => (defaultChecked ? '#adb5bd' : 'black')};
+  text-decoration: ${({ isCompleted }: { isCompleted: boolean }) =>
+    isCompleted ? 'line-through' : 'none'};
+  color: ${({ isCompleted }: { isCompleted: boolean }) =>
+    isCompleted ? '#adb5bd' : 'black'};
 `;
 
 const Button = styled.button`
@@ -22,7 +23,7 @@ const TodoText = styled.span`
 const TodoItem = ({ todo, handleTodoDelete, handleTodoToggle }) => {
   const { id, text, isCompleted } = todo;
   return (
-    <TodoItemContainer defaultChecked={isCompleted}>
+    <TodoItemContainer isCompleted={isCompleted}>
       <TodoText>{text}</TodoText>
       <div>
         <Button onClick={() => handleTodoToggle(id)}>✔️</Button>
