@@ -5,12 +5,6 @@ const ListContainer = styled.div`
   padding: 0;
   margin: 0;
 `;
-const ListTitle = styled.div`
-  padding-left: 1rem;
-  margin-top: 0.9rem;
-  font-weight: normal;
-  font-size: 17px;
-`;
 const ShowLists = styled.div`
   padding: 10px 0;
   margin: 0 auto;
@@ -34,30 +28,11 @@ const ShowLists = styled.div`
   }
 `;
 
-const TodoLists = ({ todos, handleTodoDelete, handleTodoToggle }) => {
-  // isCompleted 이 false인 yetTodo 배열 생성
-  const yetTodoList = todos.filter((todo: Todo) => todo.isCompleted === false);
-
-  //isCompleted 이 true인 doneTodo 배열 생성
-  const doneTodoList = todos.filter((todo: Todo) => todo.isCompleted === true);
-
+const TodoLists = ({ todolist, handleTodoDelete, handleTodoToggle }) => {
   return (
     <ListContainer>
-      <ListTitle>🔮 To Do ({yetTodoList.length})</ListTitle>
       <ShowLists>
-        {yetTodoList.map((todo: Todo) => (
-          <TodoItem
-            todo={todo}
-            handleTodoDelete={handleTodoDelete}
-            handleTodoToggle={handleTodoToggle}
-            key={todo.id}
-          />
-        ))}
-      </ShowLists>
-
-      <ListTitle> ❤️‍🔥 Done ({doneTodoList.length}) </ListTitle>
-      <ShowLists>
-        {doneTodoList.map((todo: Todo) => (
+        {todolist.map((todo: Todo) => (
           <TodoItem
             todo={todo}
             handleTodoDelete={handleTodoDelete}

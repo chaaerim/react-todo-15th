@@ -9,6 +9,14 @@ const Title = styled.h2`
   margin: 0;
   font-weight: normal;
 `;
+
+const ListTitle = styled.div`
+  padding-left: 1rem;
+  margin-top: 0.9rem;
+  font-weight: normal;
+  font-size: 17px;
+`;
+
 //localStorage key설정
 const TODOS_KEY = 'todos';
 
@@ -58,13 +66,26 @@ const TodoBox = () => {
     [todos]
   );
 
+  // isCompleted 이 false인 yetTodo 배열 생성
+  const yetTodoList = todos.filter((todo: Todo) => todo.isCompleted === false);
+
+  //isCompleted 이 true인 doneTodo 배열 생성
+  const doneTodoList = todos.filter((todo: Todo) => todo.isCompleted === true);
+
   return (
     <div>
       <Clock></Clock>
       <Title className="todo-title">🔫 To Do List</Title>
       <TodoInput handleTodoInput={handleTodoInput} />
+      <ListTitle>🔮 To Do ({yetTodoList.length})</ListTitle>
       <TodoLists
-        todos={todos}
+        todolist={yetTodoList}
+        handleTodoDelete={handleTodoDelete}
+        handleTodoToggle={handleTodoToggle}
+      />
+      <ListTitle> ❤️‍🔥 Done ({doneTodoList.length}) </ListTitle>
+      <TodoLists
+        todolist={doneTodoList}
         handleTodoDelete={handleTodoDelete}
         handleTodoToggle={handleTodoToggle}
       />
