@@ -26,7 +26,7 @@ const TodoBox = () => {
 
   // input에 입력된 text로 todo 객체 생성
   const handleTodoInput = useCallback(
-    (todoText) => {
+    (todoText: any) => {
       const todo = {
         id: Date.now(),
         text: todoText,
@@ -41,17 +41,17 @@ const TodoBox = () => {
 
   // todo 삭제 function
   const handleTodoDelete = useCallback(
-    (id) => {
-      setTodos(todos.filter((todo) => todo.id !== id));
+    (id: any) => {
+      setTodos(todos.filter((todo: any) => todo.id !== id));
     },
     [todos]
   );
 
   // todo 토글 function
   const handleTodoToggle = useCallback(
-    (id) => {
+    (id: any) => {
       setTodos(
-        todos.map((todo) =>
+        todos.map((todo: any) =>
           todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
         )
       );

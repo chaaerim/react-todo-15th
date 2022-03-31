@@ -13,7 +13,7 @@ const InputBox = styled.input`
 
 const TodoInput = ({ handleTodoInput }) => {
   const [todoText, setTodoText] = useState('');
-  const handleInputSubmit = (e) => {
+  const handleInputSubmit = (e: any) => {
     //todo 객체 생성
     handleTodoInput(todoText);
 
@@ -23,7 +23,7 @@ const TodoInput = ({ handleTodoInput }) => {
     //새로고침 방지
     e.preventDefault();
   };
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     setTodoText(e.target.value);
   };
   return (

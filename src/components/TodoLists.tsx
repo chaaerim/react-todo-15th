@@ -35,10 +35,10 @@ const ShowLists = styled.div`
 
 const TodoLists = ({ todos, handleTodoDelete, handleTodoToggle }) => {
   // isCompleted 이 false인 yetTodo 배열 생성
-  const yetTodoList = todos.filter((todo) => todo.isCompleted === false);
+  const yetTodoList = todos.filter((todo: any) => todo.isCompleted === false);
 
   //isCompleted 이 true인 doneTodo 배열 생성
-  const doneTodoList = todos.filter((todo) => todo.isCompleted === true);
+  const doneTodoList = todos.filter((todo: any) => todo.isCompleted === true);
 
   return (
     <ListContainer>

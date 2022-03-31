@@ -2,16 +2,24 @@
   "name": "react-todo-15th",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "@types/styled-components": "^5.1.24",
     "moment": "^2.29.1",
+    "npx": "^10.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yarn": "^1.22.18"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,5 +44,29 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/moment": "^2.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0"
+  },
+  "description": "# 서론",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaaerim/react-todo-15th.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaaerim/react-todo-15th/issues"
   }
 }
