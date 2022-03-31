@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import useInput from '../hooks/useInput';
 
 const InputBox = styled.input`
   margin: 0.5rem;
@@ -12,20 +13,18 @@ const InputBox = styled.input`
 `;
 
 const TodoInput = ({ handleTodoInput }) => {
-  const [todoText, setTodoText] = useState('');
+  const { todoText, handleInputChange, handleInputInitialize } = useInput('');
   const handleInputSubmit = (e: React.SyntheticEvent) => {
     //todo 객체 생성
     handleTodoInput(todoText);
 
     //input창 비우기
-    setTodoText('');
+    handleInputInitialize();
 
     //새로고침 방지
     e.preventDefault();
   };
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTodoText(e.target.value);
-  };
+
   return (
     <form onSubmit={handleInputSubmit}>
       <InputBox
