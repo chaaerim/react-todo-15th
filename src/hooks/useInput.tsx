@@ -15,6 +15,7 @@ const useInput = (initialInput: string) => {
   const handleInputInitialize = () => {
     setTodoText('');
   };
+
   return { todoText, handleInputChange, handleInputInitialize };
 };
 export default useInput;
