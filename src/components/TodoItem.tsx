@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { ITodo } from '../interface/interface';
+import { ITodoItemTypes } from '../interface/interface';
+
 const TodoItemContainer = styled.div`
   padding: 0.2rem 1.5rem 0.2rem 2rem;
   display: flex;
@@ -20,7 +23,11 @@ const TodoText = styled.span`
   font-size: 15px;
 `;
 
-const TodoItem = ({ todo, handleTodoDelete, handleTodoToggle }) => {
+const TodoItem = ({
+  todo,
+  handleTodoDelete,
+  handleTodoToggle,
+}: ITodoItemTypes) => {
   const { id, text, isCompleted } = todo;
   return (
     <TodoItemContainer isCompleted={isCompleted}>

@@ -4,7 +4,7 @@ const useInput = (initialInput: string) => {
   const [todoText, setTodoText] = useState(initialInput);
 
   //input창에 입력된 todo를 todoText로 설정
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const {
       target: { value },
     } = e;

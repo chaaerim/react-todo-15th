@@ -1,6 +1,8 @@
 import TodoItem from './TodoItem';
 import styled from 'styled-components';
-import { Todo } from '../interface/Todo';
+import { ITodo } from '../interface/interface';
+import { ITodoListsTypes } from '../interface/interface';
+
 const ListContainer = styled.div`
   padding: 0;
   margin: 0;
@@ -28,11 +30,15 @@ const ShowLists = styled.div`
   }
 `;
 
-const TodoLists = ({ todolist, handleTodoDelete, handleTodoToggle }) => {
+const TodoLists = ({
+  todolist,
+  handleTodoDelete,
+  handleTodoToggle,
+}: ITodoListsTypes) => {
   return (
     <ListContainer>
       <ShowLists>
-        {todolist.map((todo: Todo) => (
+        {todolist.map((todo: ITodo) => (
           <TodoItem
             todo={todo}
             handleTodoDelete={handleTodoDelete}

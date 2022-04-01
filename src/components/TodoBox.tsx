@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import TodoInput from './TodoInput';
 import TodoLists from './TodoLists';
 import styled from 'styled-components';
-import { Todo } from '../interface/Todo';
+import { ITodo } from '../interface/interface';
 import useAddTodo from '../hooks/useAddTodo';
 import useInput from '../hooks/useInput';
 
@@ -25,7 +25,7 @@ const TodoBox = () => {
   // todo 삭제 function
   const handleTodoDelete = useCallback(
     (id: number) => {
-      setTodos(todos.filter((todo: Todo) => todo.id !== id));
+      setTodos(todos.filter((todo: ITodo) => todo.id !== id));
     },
     [todos]
   );
@@ -34,7 +34,7 @@ const TodoBox = () => {
   const handleTodoToggle = useCallback(
     (id: number) => {
       setTodos(
-        todos.map((todo: Todo) =>
+        todos.map((todo: ITodo) =>
           todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
         )
       );
@@ -43,10 +43,10 @@ const TodoBox = () => {
   );
 
   // isCompleted 이 false인 yetTodo 배열 생성
-  const yetTodoList = todos.filter((todo: Todo) => todo.isCompleted === false);
+  const yetTodoList = todos.filter((todo: ITodo) => todo.isCompleted === false);
 
   //isCompleted 이 true인 doneTodo 배열 생성
-  const doneTodoList = todos.filter((todo: Todo) => todo.isCompleted === true);
+  const doneTodoList = todos.filter((todo: ITodo) => todo.isCompleted === true);
 
   return (
     <div>

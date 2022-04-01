@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import useInput from '../hooks/useInput';
+import { ITodoInputTypes } from '../interface/interface';
 
 const InputBox = styled.input`
   margin: 0.5rem;
@@ -12,7 +13,7 @@ const InputBox = styled.input`
   width: 25rem;
 `;
 
-const TodoInput = ({ handleTodoInput }) => {
+const TodoInput = ({ handleTodoInput }: ITodoInputTypes) => {
   const { todoText, handleInputChange, handleInputInitialize } = useInput('');
   const handleInputSubmit = (e: React.SyntheticEvent) => {
     //todo 객체 생성

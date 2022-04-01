@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Todo } from '../interface/Todo';
+import { ITodo } from '../interface/interface';
 
 //localStorage key설정
 const TODOS_KEY = 'todos';
@@ -7,18 +7,18 @@ const TODOS_KEY = 'todos';
 const useAddTodo = () => {
   //localStorage에서 todos 가져오기
   const [todos, setTodos] = useState(
-    JSON.parse(localStorage.getItem(TODOS_KEY)) || []
+    JSON.parse(localStorage.getItem(TODOS_KEY) || '{}')
   );
 
   //localStorage에 todos 저장
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
   }, [todos]);
 
   // input에 입력된 text로 todo 객체 생성
   const handleTodoInput = useCallback(
     (todoText: string) => {
-      const todo: Todo = {
+      const todo: ITodo = {
         id: Date.now(),
         text: todoText,
         isCompleted: false,
