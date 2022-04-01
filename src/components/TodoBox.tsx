@@ -43,7 +43,8 @@ const TodoBox = () => {
   );
 
   // isCompleted 이 false인 yetTodo 배열 생성
-  const yetTodoList = todos.filter((todo: ITodo) => todo.isCompleted === false);
+  const yetTodoList = todos;
+  //.filter((todo: ITodo) => todo.isCompleted === false);
 
   //isCompleted 이 true인 doneTodo 배열 생성
   const doneTodoList = todos.filter((todo: ITodo) => todo.isCompleted === true);
