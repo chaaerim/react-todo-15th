@@ -18,6 +18,7 @@ const Clock = () => {
     setInterval(() => {
       //현재 시간 불러오기
       setTime(moment());
+
       //1초마다 반복
     }, 1000);
   }, []);
