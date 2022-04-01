@@ -47,7 +47,9 @@ const TodoBox = () => {
   //.filter((todo: ITodo) => todo.isCompleted === false);
 
   //isCompleted 이 true인 doneTodo 배열 생성
-  const doneTodoList = todos.filter((todo: ITodo) => todo.isCompleted === true);
+  const doneTodoList = todos;
+
+  //.filter((todo: ITodo) => todo.isCompleted === true);
 
   return (
     <div>
